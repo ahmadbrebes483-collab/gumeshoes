@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GUMES – Sepatu Kulit Handmade Premium Pria</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --dark:    #161210;
+      --dark2:   #211A15;
+      --dark3:   #2C2319;
+      --gold:    #C8924A;
+      --gold2:   #E8C17A;
+      --cream:   #F4EDE3;
+      --muted:   #9A8572;
+      --white:   #FDFAF6;
+      --red:     #C0392B;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--dark);
+      color: var(--cream);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAVBAR ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 20px;
+      background: rgba(22,18,16,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(200,146,74,0.2);
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .nav-logo img {
+      height: 32px;
+    }
+    .nav-logo span {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px; color: var(--gold2);
+      letter-spacing: 2px;
+    }
+    .nav-cta {
+      background: var(--gold);
+      color: #fff; font-size: 13px; font-weight: 600;
+      padding: 8px 18px; border-radius: 4px;
+      text-decoration: none; letter-spacing: 0.5px;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--gold2); color: var(--dark); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      position: relative; overflow: hidden;
+      padding-top: 60px;
+    }
+    .hero-img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; object-fit: cover;
+      object-position: center 30%;
+      filter: brightness(0.45);
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, #161210 35%, rgba(22,18,16,0.3) 100%);
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      padding: 0 20px 44px;
+      max-width: 480px;
+    }
+    .badge-handmade {
+      display: inline-block;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      padding: 5px 14px; border-radius: 2px;
+      margin-bottom: 16px;
+    }
+    .hero-content h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 9vw, 52px);
+      line-height: 1.15;
+      color: var(--white);
+      margin-bottom: 14px;
+    }
+    .hero-content h1 em {
+      font-style: italic; color: var(--gold2);
+    }
+    .hero-sub {
+      font-size: 15px; color: rgba(244,237,227,0.75);
+      margin-bottom: 24px; max-width: 360px;
+      line-height: 1.6;
+    }
+    .hero-price-row {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 22px; flex-wrap: nowrap;
+    }
+    .price-coret {
+      font-size: 15px; color: var(--muted);
+      text-decoration: line-through;
+      white-space: nowrap;
+    }
+    .price-main {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px; font-weight: 900;
+      color: var(--gold2);
+      white-space: nowrap;
+    }
+    .price-badge {
+      background: var(--red);
+      color: #fff; font-size: 11px; font-weight: 700;
+      padding: 3px 9px; border-radius: 3px;
+      letter-spacing: 0.5px;
+    }
+    .hero-cta {
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .btn-primary {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      background: var(--gold);
+      color: #fff; font-size: 15px; font-weight: 700;
+      padding: 15px 24px; border-radius: 6px;
+      text-decoration: none; letter-spacing: 0.3px;
+      transition: background 0.2s, transform 0.1s;
+      border: none; cursor: pointer; width: 100%;
+    }
+    .btn-primary:hover { background: #d9a355; transform: translateY(-1px); }
+    .btn-secondary {
+      display: flex; align-items: center; justify-content: center;
+      background: transparent;
+      color: var(--cream); font-size: 14px; font-weight: 500;
+      padding: 13px 24px; border-radius: 6px;
+      border: 1px solid rgba(244,237,227,0.3);
+      text-decoration: none;
+      transition: border-color 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--gold); color: var(--gold2); }
+
+    /* ── TRUST BAR ── */
+    .trust-bar {
+      background: var(--dark2);
+      border-top: 1px solid rgba(200,146,74,0.2);
+      border-bottom: 1px solid rgba(200,146,74,0.2);
+      padding: 16px 20px;
+    }
+    .trust-items {
+      display: flex; overflow-x: auto;
+      gap: 0; -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .trust-items::-webkit-scrollbar { display: none; }
+    .trust-item {
+      display: flex; align-items: center; gap: 8px;
+      flex: 0 0 auto;
+      padding: 0 20px;
+      border-right: 1px solid rgba(200,146,74,0.2);
+    }
+    .trust-item:last-child { border-right: none; }
+    .trust-icon { font-size: 20px; }
+    .trust-text { font-size: 12px; font-weight: 600; color: var(--cream); white-space: nowrap; }
+    .trust-text span { display: block; font-weight: 300; color: var(--muted); font-size: 11px; }
+
+    /* ── SECTION WRAPPER ── */
+    section { padding: 56px 20px; }
+    .section-label {
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 3px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 10px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 7vw, 40px);
+      line-height: 1.2; color: var(--white);
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 15px; color: var(--muted);
+      max-width: 500px; line-height: 1.7;
+    }
+
+    /* ── PROBLEM ── */
+    .problem { background: var(--dark2); }
+    .problem-list { margin-top: 28px; display: flex; flex-direction: column; gap: 12px; }
+    .problem-item {
+      display: flex; align-items: flex-start; gap: 12px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 8px; padding: 14px 16px;
+    }
+    .problem-item .x { font-size: 18px; color: var(--red); flex-shrink: 0; margin-top: 1px; }
+    .problem-item p { font-size: 14px; color: var(--cream); line-height: 1.5; }
+
+    /* ── GALLERY ── */
+    .gallery { background: var(--dark); padding-bottom: 0; }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 6px; margin-top: 28px;
+    }
+    .gallery-grid .img-big {
+      grid-column: 1 / -1;
+    }
+    .gallery-grid img {
+      width: 100%; border-radius: 8px;
+      object-fit: cover; display: block;
+      aspect-ratio: 1/1;
+    }
+    .gallery-grid .img-big img { aspect-ratio: 4/3; }
+    .gallery-scroll {
+      display: flex; overflow-x: auto; gap: 10px;
+      margin-top: 10px; padding-bottom: 8px;
+      scrollbar-width: none;
+    }
+    .gallery-scroll::-webkit-scrollbar { display: none; }
+    .gallery-scroll img {
+      flex: 0 0 160px; height: 160px;
+      border-radius: 8px; object-fit: cover;
+    }
+
+    /* ── BENEFITS ── */
+    .benefits { background: var(--dark3); }
+    .benefits-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 14px; margin-top: 28px;
+    }
+    .benefit-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(200,146,74,0.2);
+      border-radius: 10px; padding: 20px 16px;
+    }
+    .benefit-icon { font-size: 28px; margin-bottom: 10px; }
+    .benefit-title { font-weight: 700; font-size: 14px; color: var(--white); margin-bottom: 6px; }
+    .benefit-desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+    /* ── CRAFT DETAIL ── */
+    .craft { background: var(--dark2); }
+    .craft-img-wrap { position: relative; margin-top: 28px; border-radius: 10px; overflow: hidden; }
+    .craft-img-wrap img { width: 100%; display: block; border-radius: 10px; }
+    .craft-tags {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      margin-top: 20px;
+    }
+    .craft-tag {
+      background: rgba(200,146,74,0.12);
+      border: 1px solid rgba(200,146,74,0.35);
+      color: var(--gold2); font-size: 12px; font-weight: 600;
+      padding: 6px 14px; border-radius: 20px;
+      letter-spacing: 0.5px;
+    }
+    .craft-desc { font-size: 15px; color: var(--muted); line-height: 1.7; margin-top: 16px; }
+
+    /* ── TESTIMONIAL ── */
+    .testimonial { background: var(--dark); }
+    .review-card {
+      background: var(--dark2);
+      border: 1px solid rgba(200,146,74,0.25);
+      border-radius: 12px; padding: 24px 20px;
+      margin-top: 28px; position: relative;
+    }
+    .review-quote { font-size: 48px; color: var(--gold); line-height: 1; margin-bottom: -8px; opacity: 0.5; }
+    .review-text {
+      font-size: 16px; color: var(--white);
+      font-style: italic; line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    .review-stars { color: var(--gold); font-size: 16px; margin-bottom: 8px; }
+    .review-author { font-size: 13px; color: var(--muted); }
+    .review-author strong { color: var(--cream); }
+    .review-photo {
+      width: 80px; border-radius: 6px;
+      margin-top: 16px; border: 1px solid rgba(200,146,74,0.3);
+    }
+
+    /* ── SIZE CHART ── */
+    .sizes { background: var(--dark3); }
+    .size-table {
+      width: 100%; border-collapse: collapse;
+      margin-top: 24px; font-size: 13px;
+    }
+    .size-table th {
+      background: rgba(200,146,74,0.15);
+      color: var(--gold2); font-weight: 700;
+      padding: 10px 12px; text-align: left;
+      border: 1px solid rgba(200,146,74,0.2);
+      font-size: 12px; letter-spacing: 0.5px;
+    }
+    .size-table td {
+      padding: 10px 12px;
+      border: 1px solid rgba(255,255,255,0.07);
+      color: var(--cream);
+    }
+    .size-table tr:nth-child(even) td { background: rgba(255,255,255,0.03); }
+    .size-note {
+      font-size: 12px; color: var(--muted);
+      margin-top: 12px; line-height: 1.6;
+    }
+
+    /* ── OFFER / PRICE ── */
+    .offer { background: var(--dark2); }
+    .offer-card {
+      background: linear-gradient(135deg, #1E1510, #2A1E14);
+      border: 1px solid rgba(200,146,74,0.4);
+      border-radius: 14px; padding: 28px 20px;
+      margin-top: 24px;
+    }
+    .offer-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(192,57,43,0.15);
+      border: 1px solid rgba(192,57,43,0.4);
+      color: #e74c3c; font-size: 12px; font-weight: 700;
+      padding: 6px 14px; border-radius: 4px;
+      letter-spacing: 0.5px; margin-bottom: 16px;
+    }
+    .offer-price-row {
+      display: flex; align-items: baseline; gap: 12px;
+      margin-bottom: 6px;
+    }
+    .offer-original {
+      font-size: 16px; color: var(--muted);
+      text-decoration: line-through;
+    }
+    .offer-final {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px; font-weight: 900; color: var(--gold2);
+    }
+    .offer-saving {
+      font-size: 13px; color: #2ecc71;
+      margin-bottom: 20px; font-weight: 500;
+    }
+    .offer-perks {
+      display: flex; flex-direction: column; gap: 8px;
+      margin-bottom: 24px;
+    }
+    .perk-item {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 13px; color: var(--cream);
+    }
+    .perk-icon { font-size: 16px; }
+    .offer-cta { display: flex; flex-direction: column; gap: 10px; }
+
+    /* ── FAQ ── */
+    .faq { background: var(--dark); }
+    .faq-list { margin-top: 24px; display: flex; flex-direction: column; gap: 10px; }
+    .faq-item {
+      background: var(--dark2);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 8px; overflow: hidden;
+    }
+    .faq-q {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 16px; cursor: pointer; gap: 12px;
+      font-size: 14px; font-weight: 600; color: var(--white);
+    }
+    .faq-q span { flex: 1; }
+    .faq-arrow { font-size: 18px; color: var(--gold); transition: transform 0.25s; flex-shrink: 0; }
+    .faq-item.open .faq-arrow { transform: rotate(45deg); }
+    .faq-a {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s;
+      font-size: 14px; color: var(--muted); line-height: 1.7;
+      padding: 0 16px;
+    }
+    .faq-item.open .faq-a { max-height: 200px; padding: 0 16px 16px; }
+
+    /* ── FINAL CTA ── */
+    .final-cta {
+      background: linear-gradient(135deg, var(--dark2), var(--dark3));
+      text-align: center; padding: 56px 20px;
+    }
+    .final-cta .section-title { text-align: center; margin: 0 auto 8px; }
+    .final-cta .section-sub { text-align: center; margin: 0 auto 28px; }
+    .final-cta .btn-primary { max-width: 360px; margin: 0 auto 10px; }
+    .final-cta .btn-secondary { max-width: 360px; margin: 0 auto; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      border-top: 1px solid rgba(200,146,74,0.15);
+      padding: 24px 20px;
+      text-align: center;
+    }
+    footer img { height: 28px; opacity: 0.9; margin-bottom: 8px; }
+    footer p { font-size: 12px; color: var(--muted); }
+
+    /* ── STICKY CTA ── */
+    .sticky-bar {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      background: rgba(22,18,16,0.97);
+      border-top: 1px solid rgba(200,146,74,0.3);
+      padding: 12px 16px 16px;
+      z-index: 99;
+      display: flex; gap: 10px;
+      backdrop-filter: blur(8px);
+      transform: translateY(100%);
+      transition: transform 0.3s;
+    }
+    .sticky-bar.show { transform: translateY(0); }
+    .sticky-bar .btn-primary { flex: 1; padding: 13px; font-size: 14px; }
+    .sticky-bar .btn-secondary { flex: 1; padding: 12px; font-size: 13px; }
+
+    /* ── DIVIDER ── */
+    .gold-divider {
+      width: 48px; height: 3px;
+      background: var(--gold);
+      border-radius: 2px; margin-bottom: 20px;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-content > * { animation: fadeUp 0.6s ease both; }
+    .hero-content > *:nth-child(1) { animation-delay: 0.1s; }
+    .hero-content > *:nth-child(2) { animation-delay: 0.25s; }
+    .hero-content > *:nth-child(3) { animation-delay: 0.4s; }
+    .hero-content > *:nth-child(4) { animation-delay: 0.5s; }
+    .hero-content > *:nth-child(5) { animation-delay: 0.6s; }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-logo">
+    <img src="Desain_tanpa_judul_20251115_232834_0000.png" alt="GUMES" />
+    <span>GUMES</span>
+  </div>
+  <a href="#order" class="nav-cta">Pesan Sekarang</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <img class="hero-img" src="TAN1.png" alt="GUMES Sepatu Kulit" />
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="badge-handmade">✦ Original Handmade</div>
+    <h1>Sepatu Kulit Asli, <em>Nyaman</em> Seharian Penuh</h1>
+    <p class="hero-sub">Dibuat tangan dari kulit 100% asli. Cocok untuk kerja, hangout, sampai jalan jauh — tanpa bikin kaki lelah.</p>
+    <div class="hero-price-row">
+      <span class="price-coret">Rp&nbsp;429.000</span>
+      <span class="price-main">Rp&nbsp;289.000</span>
+      <span class="price-badge">HEMAT 140rb</span>
+    </div>
+    <div class="hero-cta">
+      <a href="https://wa.me/6285111230209?text=Halo%2C%20saya%20mau%20pesan%20Sepatu%20GUMES" target="_blank" class="btn-primary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.5 2C6.261 2 2 6.261 2 11.5c0 1.77.468 3.43 1.282 4.868L2 22l5.785-1.26A9.46 9.46 0 0011.5 21C16.739 21 21 16.739 21 11.5S16.739 2 11.5 2zm0 17.273a7.73 7.73 0 01-3.948-1.082l-.283-.168-2.932.768.782-2.862-.184-.294A7.72 7.72 0 013.727 11.5c0-4.29 3.491-7.773 7.773-7.773 4.29 0 7.773 3.49 7.773 7.773 0 4.282-3.49 7.773-7.773 7.773z"/></svg>
+        Order via WhatsApp
+      </a>
+      <a href="https://id.shp.ee/xsqrhYzA" target="_blank" class="btn-secondary">
+        🛒 &nbsp;Beli COD via Shopee
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-items">
+    <div class="trust-item">
+      <span class="trust-icon">🔥</span>
+      <div class="trust-text">50+ Terjual <span>Sudah dipercaya</span></div>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">🔄</span>
+      <div class="trust-text">Garansi Tukar Size <span>Salah ukuran? Ganti!</span></div>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">🚚</span>
+      <div class="trust-text">Gratis Ongkir <span>Hemat lebih banyak</span></div>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">🐄</span>
+      <div class="trust-text">Kulit 100% Asli <span>Bukan sintetis</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section class="problem">
+  <div class="section-label">Masalah Umum</div>
+  <div class="gold-divider"></div>
+  <h2 class="section-title">Capek beli sepatu yang cepat rusak?</h2>
+  <p class="section-sub">Banyak sepatu murah yang terlihat bagus di foto, tapi begitu dipakai...</p>
+  <div class="problem-list">
+    <div class="problem-item">
+      <span class="x">✗</span>
+      <p>Jahitan lepas setelah beberapa bulan pemakaian</p>
+    </div>
+    <div class="problem-item">
+      <span class="x">✗</span>
+      <p>Bahan kulit imitasi yang retak dan mengelupas</p>
+    </div>
+    <div class="problem-item">
+      <span class="x">✗</span>
+      <p>Sol licin — berbahaya di lantai basah</p>
+    </div>
+    <div class="problem-item">
+      <span class="x">✗</span>
+      <p>Kaki pegal dan lecet kalau dipakai lebih dari 3 jam</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery">
+  <div class="section-label">Produk</div>
+  <div class="gold-divider"></div>
+  <h2 class="section-title">GUMES – Dibikin Beda dari Awal</h2>
+  <div class="gallery-grid">
+    <div class="img-big"><img src="TAN4.png" alt="GUMES Shoes Side View" /></div>
+    <img src="TAN2.png" alt="GUMES Sole Anti Slip" />
+    <img src="TAN6.png" alt="GUMES dipakai" />
+  </div>
+  <div class="gallery-scroll">
+    <img src="TAN5.png" alt="GUMES Front View" />
+    <img src="TAN1.png" alt="GUMES Perspective" />
+    <img src="5_20260226_170627_0004.png" alt="GUMES Detail Jahitan" />
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits">
+  <div class="section-label">Keunggulan</div>
+  <div class="gold-divider"></div>
+  <h2 class="section-title">Kenapa Pilih GUMES?</h2>
+  <div class="benefits-grid">
+    <div class="benefit-card">
+      <div class="benefit-icon">🐄</div>
+      <div class="benefit-title">Kulit Asli 100%</div>
+      <div class="benefit-desc">Bukan sintetis. Makin lama dipakai, makin bagus tampilannya.</div>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">🤲</div>
+      <div class="benefit-title">Handmade</div>
+      <div class="benefit-desc">Dikerjakan tangan — setiap jahitan dikontrol kualitasnya satu per satu.</div>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">🛡️</div>
+      <div class="benefit-title">Sol Anti Slip</div>
+      <div class="benefit-desc">Tekstur hexagonal grip kuat — aman di lantai licin maupun jalanan.</div>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">☁️</div>
+      <div class="benefit-title">Empuk & Nyaman</div>
+      <div class="benefit-desc">Insole tebal dan lembut. Cocok dipakai seharian tanpa kaki pegal.</div>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">💼</div>
+      <div class="benefit-title">Multiguna</div>
+      <div class="benefit-desc">Pas buat kerja, nongkrong, jalan-jalan, hingga acara semi-formal.</div>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">🔁</div>
+      <div class="benefit-title">Garansi Ukuran</div>
+      <div class="benefit-desc">Salah pilih ukuran? Kami tukar — tanpa ribet, tanpa syarat aneh.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CRAFT DETAIL -->
+<section class="craft">
+  <div class="section-label">Craftsmanship</div>
+  <div class="gold-divider"></div>
+  <h2 class="section-title">Detail yang<br/>Bicara Sendiri</h2>
+  <div class="craft-img-wrap">
+    <img src="5_20260226_170627_0004.png" alt="Detail Jahitan GUMES" />
+  </div>
+  <div class="craft-tags">
+    <span class="craft-tag">Double Stitching</span>
+    <span class="craft-tag">Genuine Leather Upper</span>
+    <span class="craft-tag">Textured Midsole</span>
+    <span class="craft-tag">Hexagonal Outsole</span>
+    <span class="craft-tag">Padded Insole</span>
+  </div>
+  <p class="craft-desc">Setiap pasang GUMES melewati proses jahit manual yang rapi dan teliti. Hasilnya sepatu yang tidak hanya terlihat premium, tapi benar-benar awet bertahun-tahun.</p>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="testimonial">
+  <div class="section-label">Testimoni Nyata</div>
+  <div class="gold-divider"></div>
+  <h2 class="section-title">Kata Mereka yang Sudah Pakai</h2>
+  <div class="review-card">
+    <div class="review-quote">"</div>
+    <div class="review-stars">★★★★★</div>
+    <p class="review-text">Thank You. Puas dengan sepatunya... dipake nyaman dan kualitas ok... penjualnya super ramah... bakalan naik daun ini sepatu Gumes.</p>
+    <div class="review-author"><strong>Pembeli Terverifikasi</strong> — Variasi 42 · 29 Maret 2026</div>
+    <img src="TAN8.png" alt="Foto dari pembeli" class="review-photo" />
+  </div>
+</section>
+
+<!-- SIZE CHART -->
+<section class="sizes">
+  <div class="section-label">Panduan Ukuran</div>
+  <div class="gold-divider"></div>
+  <h2 class="section-title">Pilih Ukuran yang Tepat</h2>
+  <p class="section-sub">Ukur panjang telapak kaki kamu, lalu cocokkan dengan tabel di bawah.</p>
+  <table class="size-table">
+    <thead>
+      <tr>
+        <th>SIZE</th>
+        <th>Panjang Insole</th>
+        <th>Panjang Kaki</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>39</strong></td><td>24.5 – 25 cm</td><td>23.5 – 24 cm</td></tr>
+      <tr><td><strong>40</strong></td><td>25.5 – 26 cm</td><td>24.5 – 25 cm</td></tr>
+      <tr><td><strong>41</strong></td><td>26.5 – 27 cm</td><td>25.5 – 26 cm</td></tr>
+      <tr><td><strong>42</strong></td><td>27.5 – 28 cm</td><td>26.5 – 27 cm</td></tr>
+      <tr><td><strong>43</strong></td><td>28.5 cm</td><td>27 – 27.5 cm</td></tr>
+    </tbody>
+  </table>
+  <p class="size-note">💡 Tip: Ukur kaki di sore hari saat kaki sedikit lebih besar. Jika di antara dua ukuran, pilih yang lebih besar. Ada <strong>garansi tukar size</strong> jika tidak pas.</p>
+</section>
+
+<!-- OFFER -->
+<section class="offer" id="order">
+  <div class="section-label">Penawaran Spesial</div>
+  <div class="gold-divider"></div>
+  <h2 class="section-title">Dapatkan GUMES Hari Ini</h2>
+  <div class="offer-card">
+    <div class="offer-badge">🔥 STOK TERBATAS</div>
+    <div class="offer-price-row">
+      <span class="offer-original">Rp 429.000</span>
+      <span class="offer-final">Rp 289.000</span>
+    </div>
+    <p class="offer-saving">✅ Hemat Rp 140.000 dari harga normal</p>
+    <div class="offer-perks">
+      <div class="perk-item"><span class="perk-icon">🚚</span> Gratis Ongkir ke seluruh Indonesia</div>
+      <div class="perk-item"><span class="perk-icon">🔄</span> Garansi Tukar Ukuran jika tidak pas</div>
+      <div class="perk-item"><span class="perk-icon">💳</span> Bayar via Transfer / COD lewat Shopee</div>
+      <div class="perk-item"><span class="perk-icon">📦</span> Dikemas aman, dikirim cepat</div>
+    </div>
+    <div class="offer-cta">
+      <a href="https://wa.me/6285111230209?text=Halo%2C%20saya%20mau%20pesan%20Sepatu%20GUMES%20ukuran..." target="_blank" class="btn-primary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.5 2C6.261 2 2 6.261 2 11.5c0 1.77.468 3.43 1.282 4.868L2 22l5.785-1.26A9.46 9.46 0 0011.5 21C16.739 21 21 16.739 21 11.5S16.739 2 11.5 2zm0 17.273a7.73 7.73 0 01-3.948-1.082l-.283-.168-2.932.768.782-2.862-.184-.294A7.72 7.72 0 013.727 11.5c0-4.29 3.491-7.773 7.773-7.773 4.29 0 7.773 3.49 7.773 7.773 0 4.282-3.49 7.773-7.773 7.773z"/></svg>
+        Pesan via WhatsApp — Rp 289.000
+      </a>
+      <a href="https://id.shp.ee/xsqrhYzA" target="_blank" class="btn-secondary">
+        🛒 &nbsp;COD via Shopee
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="section-label">FAQ</div>
+  <div class="gold-divider"></div>
+  <h2 class="section-title">Pertanyaan yang<br/>Sering Ditanya</h2>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q"><span>Apakah ukurannya true to size?</span><span class="faq-arrow">+</span></div>
+      <div class="faq-a">Ukuran GUMES cukup akurat. Silakan ukur panjang telapak kaki kamu dan sesuaikan dengan size chart di atas. Jika ragu antara dua ukuran, pilih yang lebih besar. Ada garansi tukar ukuran jika tidak pas.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span>Berapa lama pengiriman?</span><span class="faq-arrow">+</span></div>
+      <div class="faq-a">Estimasi 2–5 hari kerja tergantung lokasi. Kami menggunakan jasa ekspedisi terpercaya dengan packaging yang aman.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span>Bisa bayar COD?</span><span class="faq-arrow">+</span></div>
+      <div class="faq-a">Bisa! Untuk COD silakan order lewat Shopee kami. Untuk pembayaran transfer bisa langsung order via WhatsApp.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span>Gimana cara merawat sepatu kulit ini?</span><span class="faq-arrow">+</span></div>
+      <div class="faq-a">Bersihkan dengan kain lembab, jangan rendam di air. Gunakan shoe polish/conditioner kulit secara berkala agar tetap lembut dan mengkilap. Simpan di tempat kering dan tidak terkena matahari langsung.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="section-label" style="text-align:center;">Jangan Tunda</div>
+  <h2 class="section-title">Kaki Nyaman, Tampil Percaya Diri</h2>
+  <p class="section-sub">Kulit asli. Handmade. Tahan lama. Harga terjangkau. Stok terbatas.</p>
+  <a href="https://wa.me/6285111230209?text=Halo%2C%20saya%20mau%20pesan%20Sepatu%20GUMES" target="_blank" class="btn-primary">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.5 2C6.261 2 2 6.261 2 11.5c0 1.77.468 3.43 1.282 4.868L2 22l5.785-1.26A9.46 9.46 0 0011.5 21C16.739 21 21 16.739 21 11.5S16.739 2 11.5 2zm0 17.273a7.73 7.73 0 01-3.948-1.082l-.283-.168-2.932.768.782-2.862-.184-.294A7.72 7.72 0 013.727 11.5c0-4.29 3.491-7.773 7.773-7.773 4.29 0 7.773 3.49 7.773 7.773 0 4.282-3.49 7.773-7.773 7.773z"/></svg>
+    Pesan Sekarang – Rp 289.000
+  </a>
+  <a href="https://id.shp.ee/xsqrhYzA" target="_blank" class="btn-secondary">
+    🛒 &nbsp;Atau beli COD via Shopee
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img src="Desain_tanpa_judul_20251115_232834_0000.png" alt="GUMES" />
+  <p>© 2026 GUMES Original Handmade · Sepatu Kulit Pria Premium</p>
+</footer>
+
+<!-- STICKY BAR -->
+<div class="sticky-bar" id="stickyBar">
+  <a href="https://wa.me/6285111230209?text=Halo%2C%20saya%20mau%20pesan%20Sepatu%20GUMES" target="_blank" class="btn-primary">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.5 2C6.261 2 2 6.261 2 11.5c0 1.77.468 3.43 1.282 4.868L2 22l5.785-1.26A9.46 9.46 0 0011.5 21C16.739 21 21 16.739 21 11.5S16.739 2 11.5 2zm0 17.273a7.73 7.73 0 01-3.948-1.082l-.283-.168-2.932.768.782-2.862-.184-.294A7.72 7.72 0 013.727 11.5c0-4.29 3.491-7.773 7.773-7.773 4.29 0 7.773 3.49 7.773 7.773 0 4.282-3.49 7.773-7.773 7.773z"/></svg>
+    Pesan WA
+  </a>
+  <a href="https://id.shp.ee/xsqrhYzA" target="_blank" class="btn-secondary">🛒 COD Shopee</a>
+</div>
+
+<script>
+  // FAQ toggle
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // Sticky bar
+  const stickyBar = document.getElementById('stickyBar');
+  const hero = document.querySelector('.hero');
+  const observer = new IntersectionObserver(([entry]) => {
+    stickyBar.classList.toggle('show', !entry.isIntersecting);
+  }, { threshold: 0.1 });
+  observer.observe(hero);
+</script>
+</body>
+</html>
